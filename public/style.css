@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #121212;
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    padding: 50px;
+}
+
+.animated-text {
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Show the text when visible */
+.animated-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Text Effects */
+.gradient-text {
+    background: linear-gradient(90deg, #ff6f61, #ffcb61, #6bff61);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.wave-text {
+    display: inline-block;
+    animation: wave 1s infinite ease-in-out;
+}
+
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.glow-text {
+    text-shadow: 0 0 10px #ff6f61, 0 0 20px #ffcb61, 0 0 30px #6bff61;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ff6f61; }
+    to { text-shadow: 0 0 20px #ffcb61; }
+}
+
+#model-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+/* Image Styling */
+.image-container {
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    vertical-align: middle;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Background Elements */
+.background div {
+    position: absolute;
+    opacity: 0.6;
+}
+
+/* Animated Shapes */
+.circle, .square, .pulsate, .triangle, .hexagon, .wave, .star, .wavy, .bouncing-ball {
+    position: absolute;
+    opacity: 0.7;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 165, 0, 0.8);
+    border-radius: 50%;
+    top: 10%;
+    left: 20%;
+    animation: rotate 6s linear infinite;
+}
+
+.square {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 255, 255, 0.8);
+    top: 40%;
+    right: 30%;
+    animation: moveUpDown 4s ease-in-out infinite alternate;
+}
+
+.pulsate {
+    width: 120px;
+    height: 120px;
+    background-color: rgba(255, 0, 0, 0.5);
+    border-radius: 50%;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: pulsate 3s ease-in-out infinite;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 70px solid rgba(0, 255, 0, 0.8);
+    bottom: 30%;
+    right: 10%;
+    animation: rotate 5s linear infinite;
+}
+
+.hexagon {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 215, 0, 0.8);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    top: 15%;
+    left: 70%;
+    animation: floatHex 5s ease-in-out infinite alternate;
+}
+
+.wave {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 0, 255, 0.6);
+    bottom: 20%;
+    right: 20%;
+    animation: waveExpand 4s ease-in-out infinite;
+}
+
+.star {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 0, 0.8);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    top: 50%;
+    left: 10%;
+    animation: spinStar 3s linear infinite;
+}
+
+/* Text Animations */
+.container {
+    position: relative;
+    z-index: 10;
+    max-width: 90%;
+}
+
+.animated-text {
+    font-size: 3.5rem;
+    font-weight: 700;
+    white-space: nowrap;
+    border-right: 3px solid white;
+    width: 0;
+    animation: typing 3s steps(40, end) forwards, blink-caret 0.75s infinite;
+}
+
+.animated-text:hover {
+    color: #ff007f;
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+}
+
+/* Keyframe Animations */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    50% { border-color: transparent; }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes moveUpDown {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(50px); }
+}
+
+@keyframes pulsate {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.4); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
+
+@keyframes floatHex {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(30px) rotate(15deg); }
+}
+
+@keyframes waveExpand {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.5); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+@keyframes spinStar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

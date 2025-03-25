@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography Animation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Animation Elements -->
+    <div class="background">
+        <div class="circle"></div>
+        <div class="square"></div>
+        <div class="triangle"></div>
+        <div class="pulsate"></div>
+    </div>
+    
+    <div class="background">
+        <div class="hexagon"></div>
+        <div class="wave"></div>
+        <div class="star"></div>
+        <div class="wavy"></div>
+        <div class="bouncing-ball"></div>
+    </div>
+    
+    <div class="container">
+        <p class="animated-text fade-in">
+            <span class="gradient-text">Hii</span> 
+            <span class="user">U</span>
+            <span class="image-container">
+                <img src="../assets/images/image1.png" alt="User">
+            </span> 
+            ser you? How are You....
+        </p>
+    
+        <p class="animated-text fade-in" data-delay="300">
+            <span class="wave-text">Have a good</span>  
+            <span class="image-container">
+                <img src="../assets/images/image1.png" alt="User">
+            </span> 
+            <span class="glow-text">User......</span>
+        </p>
+
+        <p class="animated-text fade-in" data-delay="600">
+            <span class="gradient-text">Enjoy your day</span> and keep smiling 😊
+        </p>
+
+        <p class="animated-text fade-in" data-delay="900">
+            <span class="wave-text">The world is brighter with your presence! ✨</span>
+        </p>
+    </div>
+    <div>
+        
+    </div>
+
+    <script>
+        // Function to reveal text on scroll
+        function revealText() {
+            const texts = document.querySelectorAll(".fade-in");
+            texts.forEach((text) => {
+                const rect = text.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    text.classList.add("visible");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", revealText);
+        revealText(); // Run once on load
+    </script>
+
+</body>
+</html>
